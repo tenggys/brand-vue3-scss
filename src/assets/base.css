@@ -2,4 +2,31 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: #FFFFFF;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+@media (min-width: 480px) and (max-width: 767.98px) {
+  .container {
+    max-width: 734px;
+  }
+}
+@media (max-width: 479.98px) {
+  .container {
+    max-width: 343px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
 }/*# sourceMappingURL=base.css.map */
