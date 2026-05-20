@@ -5,7 +5,7 @@ import promoImage from '@/assets/images/promo.png'
 
 <template>
   <section class="promo">
-    <div class="container promo__flex">
+    <div class="promo__flex">
       <img class="promo__img" :src="promoImage" alt="Promo">
       <div class="promo__content">
         <h1 class="promo__title">
