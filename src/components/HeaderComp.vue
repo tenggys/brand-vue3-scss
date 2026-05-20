@@ -2,14 +2,20 @@
   import { ref } from 'vue'
 
   const isOpen = ref(false)
+  const openCategories = ref([])
 
   const toggleMenu = () => {
     isOpen.value = !isOpen.value
   }
 
-  const closeMenu = () => {
-    isOpen.value = false
+  const toggleCategory = (category) => {
+    if (openCategories.value.includes(category)) {
+      openCategories.value = openCategories.value.filter(e => e !== category)
+    } else {
+      openCategories.value.push(category)
+    }
   }
+
 </script>
 
 <template>
@@ -36,11 +42,38 @@
             <path d="M0 23V20.31H32V23H0ZM0 12.76V10.07H32V12.76H0ZM0 2.69V0H32V2.69H0Z" fill="#E8E8E8"/>
         </svg>
         <div class="header__burger-menu" :class="{ 'header__burger-menu--open': isOpen }">
-          <p>MENU</p>
-          <ul>
-            <li>MAN</li>
-            <li>WOMAN</li>
-            <li>KIDS</li>
+          <p class="header__menu-title">MENU</p>
+          <ul class="header__menu-list">
+            <li class="header__menu-item">
+              <span class="header__menu-category" @click="toggleCategory('man')">MAN</span>
+              <ul class="header__submenu" v-if="openCategories.includes('man')">
+                <li><a class="header__submenu-link" href="#">Accessories</a></li>
+                <li><a class="header__submenu-link" href="#">Bags</a></li>
+                <li><a class="header__submenu-link" href="#">Denim</a></li>
+                <li><a class="header__submenu-link" href="#">T-Shirts</a></li>
+              </ul>
+            </li>
+            <li class="header__menu-item">
+              <span class="header__menu-category" @click="toggleCategory('woman')">WOMAN</span>
+              <ul class="header__submenu" v-if="openCategories.includes('woman')">
+                <li><a class="header__submenu-link" href="#">Accessories</a></li>
+                <li><a class="header__submenu-link" href="#">Jackets & Coats</a></li>
+                <li><a class="header__submenu-link" href="#">Polos</a></li>
+                <li><a class="header__submenu-link" href="#">T-Shirts</a></li>
+                <li><a class="header__submenu-link" href="#">Shirts</a></li>
+              </ul>
+            </li>
+            <li class="header__menu-item">
+              <span class="header__menu-category" @click="toggleCategory('kids')">KIDS</span>
+              <ul class="header__submenu" v-if="openCategories.includes('kids')">
+                <li><a class="header__submenu-link" href="#">Accessories</a></li>
+                <li><a class="header__submenu-link" href="#">Jackets & Coats</a></li>
+                <li><a class="header__submenu-link" href="#">Polos</a></li>
+                <li><a class="header__submenu-link" href="#">T-Shirts</a></li>
+                <li><a class="header__submenu-link" href="#">Shirts</a></li>
+                <li><a class="header__submenu-link" href="#">Bags</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
         <svg class="header__icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,12 +155,13 @@
     }
 
     &__burger-menu {
+      width: 232px;
       position: absolute;
       top: 78px;
       right: 0;
       box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
       background: $bgWhite;
-      padding: 32px;
+      padding: 32px 0 32px 32px;
       transition: transform 0.3s ease;
       transform: translateY(-200%);
 
@@ -136,6 +170,37 @@
         transform: translateY(0);
       }
     }
+
+    &__menu-title {
+      @include text(700, 14px, 100%, $textBlack);
+      margin-bottom: 24px;
+    }
+
+    &__menu-category {
+      cursor: pointer;
+      display: block;
+      @include text(700, 14px, 100%, $textPinc);
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        text-shadow: 0 0 8px $textPinc;
+      }
+    }
+
+    &__submenu-link {
+      display: block;
+      padding-left: 21.5px;
+      margin-bottom: 11px;
+      @include text(400, 14px, 100%, $textGray);
+      transition: all 0.3s ease;
+
+      &:hover {
+        @include text(400, 14px, 100%, $textPinc);
+      }
+
+    }
+
   }
 
 </style>
