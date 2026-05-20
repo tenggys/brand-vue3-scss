@@ -93,4 +93,16 @@
       }
     }
   }
+
+  @media (max-width: 767.98px) {
+    .footer {
+      padding: 43px 0 9px;
+
+      &__flex {
+        @include flex-center;
+        flex-direction: column-reverse;
+        gap: 40px;
+      }
+    }
+  }
 </style>

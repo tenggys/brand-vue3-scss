@@ -16,8 +16,11 @@
                     <span class="subscribe__title--span">SUBSCRIBE</span> <br>
                     FOR OUR NEWLETTER AND PROMOTION
                 </p>
-                <input class="subscribe__input" type="email" placeholder="Enter Your Email">
-                <button class="subscribe__button" type="submit">Subscribe</button>
+                <div class="subscribe__form-sending">
+                  <input class="subscribe__input" type="email" placeholder="Enter Your Email">
+                  <button class="subscribe__button" type="submit">Subscribe</button>
+                </div>
+
             </form>
         </div>
     </section>
@@ -79,6 +82,10 @@
             right: 0
         }
 
+        &__form-sending {
+          @include flex-between;
+        }
+
         &__title {
             @include text(400, 18px, 167%, $textBlack);
             text-align: center;
@@ -110,4 +117,74 @@
         }
 
     }
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    .subscribe {
+      height: auto;
+
+      &__container {
+        @include flex-center;
+        flex-direction: column;
+      }
+
+      &__figure {
+          margin-top: 64px;
+          margin-bottom: 48px;
+          position: relative;
+      }
+
+      &__form {
+          padding: 0;
+          position: relative;
+          top: auto;
+          right: auto;
+          margin-bottom: 140px;
+      }
+    }
+  }
+  @media (max-width: 767.98px) {
+    .subscribe {
+      height: auto;
+
+      &__container {
+        @include flex-center;
+        flex-direction: column;
+      }
+
+      &__figure {
+          margin-top: 64px;
+          margin-bottom: 59px;
+          position: relative;
+      }
+
+      &__text {
+        @include text(400, 18px, 100%, $textBlack);
+        width: 340px;
+      }
+
+      &__form {
+          padding: 0;
+          position: relative;
+          top: auto;
+          right: auto;
+          margin-bottom: 101px;
+      }
+
+      &__title {
+          @include text(400, 14px, 153%, $textBlack);
+
+          &--span {
+            @include text(700, 24px, 153%, $textBlack);
+          }
+      }
+
+      &__input {
+        width: auto;
+        padding-right: 42px;
+      }
+
+      &__button {
+        width: 96px;
+      }
+    }
+  }
 </style>

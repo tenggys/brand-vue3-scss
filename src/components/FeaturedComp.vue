@@ -179,4 +179,37 @@ const cardStore = mainCardFetured()
       }
     }
   }
+
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    .featured {
+      margin-bottom: 65px;
+
+      &__box {
+        gap: 16px;
+        margin-bottom: 33px;
+      }
+
+      &__card {
+        width: calc(49.999% - 8px);
+
+      }
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .featured {
+      margin-bottom: 96px;
+
+      &__box {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 41px;
+      }
+
+      &__card {
+        width: 100%;
+
+      }
+    }
+  }
 </style>

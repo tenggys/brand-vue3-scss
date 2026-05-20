@@ -54,7 +54,7 @@ import promoImage from '@/assets/images/promo.png'
     }
   }
 
-  @media (min-width: 480px) and (max-width: 767.98px) {
+  @media (min-width: 768px) and (max-width: 1199.98px) {
     .promo {
       height: auto;
       margin-bottom: 19.95px;
@@ -82,7 +82,7 @@ import promoImage from '@/assets/images/promo.png'
       }
     }
   }
-  @media (max-width: 479.98px) {
+  @media (max-width: 767.98px) {
     .promo {
       margin-bottom: 64px;
       height: auto;

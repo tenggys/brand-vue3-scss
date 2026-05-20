@@ -15,16 +15,21 @@ body {
   max-width: $container;
   margin: 0 auto;
 
-  @media (min-width: 480px) and (max-width: 767.98px) {
-    max-width: $containerMob;
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    max-width: $containerTab;
   }
-  @media (max-width: 479.98px) {
-    max-width: $containerMobMin;
+
+  @media (max-width: 767.98px) {
+    max-width: $containerMob;
   }
 }
 
 a {
   text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }
 
 button {

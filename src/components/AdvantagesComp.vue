@@ -70,5 +70,26 @@
       @include text(400, 13.97px, 100%, $textGray);
     }
   }
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    .advantages {
+      padding: 48px 0;
 
+      &__flex {
+        @include flex-center;
+        flex-direction: column;
+        gap: 48px;
+      }
+    }
+  }
+  @media (max-width: 767.98px) {
+    .advantages {
+      padding: 48px 0;
+
+      &__flex {
+        @include flex-center;
+        flex-direction: column;
+        gap: 46px;
+      }
+    }
+  }
 </style>
